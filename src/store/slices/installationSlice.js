@@ -9,7 +9,7 @@ const initialState = {
       deviceType: 'MRI Scanner',
       facility: 'City Hospital',
       installationDate: '2023-06-20',
-      engineer: 'John Smith',
+      engineer: 'Admin',
       status: 'Completed',
       trainingCompleted: true,
       checklist: [

@@ -9,7 +9,7 @@ const initialState = {
       deviceType: 'MRI Scanner',
       facility: 'City Hospital',
       date: '2024-01-15',
-      engineer: 'Mike Johnson',
+      engineer: 'Admin',
       type: 'Preventive',
       purpose: 'Routine Maintenance',
       status: 'Completed',
@@ -31,7 +31,7 @@ const initialState = {
       ],
       nextServiceDate: '2024-04-15',
       partsReplaced: ['Air Filter', 'Cooling Fan'],
-      cost: 1500
+      cost: 125000
     }
   ],
   loading: false,
