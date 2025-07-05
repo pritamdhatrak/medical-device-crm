@@ -27,20 +27,29 @@ const menuItems = [
   { text: 'Alerts', icon: <NotificationsOutlined />, path: '/alerts' },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ open, onClose, isMobile }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleNavigation = (path) => {
+    navigate(path);
+    if (isMobile) {
+      onClose();
+    }
+  };
+
   return (
     <Drawer
-      variant="permanent"
+      variant={isMobile ? 'temporary' : 'persistent'}
+      open={open}
+      onClose={onClose}
       sx={{
         width: 240,
         flexShrink: 0,
         '& .MuiDrawer-paper': {
           width: 240,
           boxSizing: 'border-box',
-          position: 'relative',
+          position: isMobile ? 'fixed' : 'relative',
         },
       }}
     >
@@ -50,7 +59,7 @@ const Sidebar = () => {
           <ListItem key={item.text} disablePadding>
             <ListItemButton
               selected={location.pathname === item.path}
-              onClick={() => navigate(item.path)}
+              onClick={() => handleNavigation(item.path)}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />

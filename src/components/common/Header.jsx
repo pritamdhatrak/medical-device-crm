@@ -12,20 +12,29 @@ import {
   AccountCircle,
   MenuOutlined,
 } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 
-const Header = () => {
+const Header = ({ onMenuClick }) => {
+  const alerts = useSelector(state => state.alerts.alerts);
+  const activeAlerts = alerts.filter(alert => alert.status === 'active').length;
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit">
+        <IconButton 
+          edge="start" 
+          color="inherit"
+          onClick={onMenuClick}
+          sx={{ mr: 2 }}
+        >
           <MenuOutlined />
         </IconButton>
-        <Typography variant="h6" sx={{ flexGrow: 1, ml: 2 }}>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Medical Device CRM
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <IconButton color="inherit">
-            <Badge badgeContent={2} color="error">
+            <Badge badgeContent={activeAlerts} color="error">
               <NotificationsOutlined />
             </Badge>
           </IconButton>
