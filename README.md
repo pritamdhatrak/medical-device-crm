@@ -2,7 +2,7 @@
 
 A comprehensive web application for managing medical device inventories, installations, service visits, and maintenance contracts.
 
-
+live demo-https://medical-device-crm.vercel.app/alerts
 
 ## 📋 Features
 
